@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listings de mes livres{% endblock %}
+
+{% block body %}
+    <h1>Livres </h1>
+
+{% for book in books %}
+    Nom : {{ book.name ? book.name : 'NFC' }} <br>
+    Date : {{ book.publicationDate ? book.publicationDate : 'NC' }} <br>
+    Description: {{ book.description ? book.description : 'NFC' }} <br>
+    Prix : {{ book.averagePage ? book.averagePage : 'NFC' }} <br>
+    
+    <a href="{{ path('book_show', {'id': book.id} ) }}" >Voir le livre </a>
+    <br>
+{% endfor %}
+
+{% endblock %}
